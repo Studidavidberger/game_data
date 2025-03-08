@@ -1,0 +1,17 @@
+2D
+- click game 1 vagues de zombies en stype noir et blanc, pixelisé simpliste.
+
+- exploration spatial 2 miner des lunes, gagner de l'argent, agrandir son vaisseau.
+
+3D
+- simulateur de guerre de SDF 1 ameliorer son SDF, et gagner le territoire d'autres SDF.
+
+- sandbox, strategie 2 construire son propre vehicule, pour atteindre la plus longue distance possible
+
+- horreur psychologique 3 Un enfant subit une abduction extraterrestre sans le savoir et se rend contre au fur et a mesure qu'in y a un probleme dans sa vie.
+
+- exploration 5 simulateur d'urbex de ville.
+
+
+ISOMETRIQUE
+- jeu de defense 1 defendre une ferme face a une attaque de zombie.
