@@ -1,0 +1,57 @@
+
+demarrage
+
+questions a repondre d'ici le 25 Mars
+
+questions techniques :
+- avec qui creer le jeu ?
+- Dans quel language et moteur de jeu programmer ?
+- ou publier le jeu ?
+
+
+questions in-game :
+- quel catégorie de jeu ?
+- multijoueur ?
+- 
+
+
+etape 1 faire un petit jeu sur PC en :
+Python
+C
+C++
+
+3 mois pour developper le v
+
+
+Source : https://thomasgervraud.com/best-2d-game-engine/
+
+Liste de languages de programmation pour les jeux vidéo :
+C
+C#
+C++
+python
+
+Liste des Moteurs de jeu :
+godot
+unity
+unreal
+studio game maker
+construct.net ( dans le navigateur )
+Solar2D ( basé sur Lua ) guide : https://docs.coronalabs.com/guide/programming/index.html
+RPG Maker guide : https://kinoar.github.io/rmmv-doc-web/
+Buildbox : no-code, payant
+Clickteam Fusion : payant pour exporter un jeu.
+
+Liste des libraires :
+cocos2d python3.6 necessite pyglet chinois
+
+liens de telechargements plateforme Linux : 
+Godot : https://godotengine.org/download/linux/
+Unity : https://docs.unity3d.com/hub/manual/InstallHub.html#install-hub-linux
+GameMaker : https://gamemaker.io/en/download
+Solar2D : https://github.com/coronalabs/corona/releases/tag/3718
+cocos : https://www.cocos.com/en
+Toutes les version de RPG Maker : https://www.rpgmakerweb.com/downloads
+Unreal : https://www.unrealengine.com/en-US/download ( Windows )
+BuildBox : https://signup.buildbox.com/downloads/bb3 ( Windows )
+Defold : https://defold.com/download/
