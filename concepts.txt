@@ -1,9 +1,26 @@
-2D
-- click game 1 vagues de zombies en stype noir et blanc, pixelisé simpliste.
+## 2D
+Jeu numero 1
+- categorie : clickergame
+ nom : clash of zombie
+ concept : proteger une princesse des vagues de zombies ( jeu infini )
+ touches artistiques : style noir et blanc, crayon a papier.
+ autres remarques : cycle jour/nuit, easter eggs vaisseau alien,
+ score, jalons de force du click, augmentation du spawn de zombies a chaque
+ boss zombies vaincu, types de zombies hommme, femmes, chien, poulet,
+ gargantua, cuisinier goofy ahh.. et les chaudasse du cul.
 
-- exploration spatial 2 miner des lunes, gagner de l'argent, agrandir son vaisseau.
-
-3D
+Jeu Numero 2
+- categorie : IDLE
+ concept : propriétaire d'un petit vaisseau spatial miteux, 
+ vous devrez farmer des ressources dans l'espace, grace aux 
+ lunes, generateurs, pillages, et troc sur "EL market"
+ afin d'agrandir son vaisseau.
+ touches artistiques : metallique, pierre, ciel nocturne, missiles en cas de 
+	raids
+ autres : attaques des vents solaires -> retour a zero du joueur,
+	capacité de wrap, 
+  
+### 3D
 - simulateur de guerre de SDF 1 ameliorer son SDF, et gagner le territoire d'autres SDF.
 
 - sandbox, strategie 2 construire son propre vehicule, pour atteindre la plus longue distance possible
