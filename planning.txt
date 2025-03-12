@@ -23,6 +23,8 @@ C++
 3 mois pour developper le v
 
 
+Moteur de texture : https://www.codeandweb.com/texturepacker/download/7.6.0/linux-deb
+
 Source : https://thomasgervraud.com/best-2d-game-engine/
 
 Liste de languages de programmation pour les jeux vidéo :
@@ -41,6 +43,7 @@ Solar2D ( basé sur Lua ) guide : https://docs.coronalabs.com/guide/programming/
 RPG Maker guide : https://kinoar.github.io/rmmv-doc-web/
 Buildbox : no-code, payant
 Clickteam Fusion : payant pour exporter un jeu.
+Roblox Studio  : Windows 
 
 Liste des libraires :
 cocos2d python3.6 necessite pyglet chinois
@@ -55,3 +58,4 @@ Toutes les version de RPG Maker : https://www.rpgmakerweb.com/downloads
 Unreal : https://www.unrealengine.com/en-US/download ( Windows )
 BuildBox : https://signup.buildbox.com/downloads/bb3 ( Windows )
 Defold : https://defold.com/download/
+Roblox Studio : https://devforum.roblox.com/t/the-ultimate-guide-on-how-to-play-roblox-on-linux/3171920
