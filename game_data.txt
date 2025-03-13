@@ -1,0 +1,110 @@
+Étape 1 : Lister toutes vos tâches
+
+Étape 2 : Inclure du temps pour les imprévus
+
+Étape 3 : Mettre un ordre de priorité
+
+Étape 4 : Indiquer une durée réaliste
+
+Étape 5 : Totaliser les heures
+
+Étape 6 : Éliminer les tâches hors limite
+
+Étape 7 : Réaliser les tâches dans l’ordre
+
+## 2D
+Jeu numero 1
+- categorie : clickergame
+ nom : clash of zombie
+ concept : proteger une princesse des vagues de zombies ( jeu infini )
+ touches artistiques : style noir et blanc, crayon a papier.
+ autres remarques : cycle jour/nuit, easter eggs vaisseau alien,
+ score, jalons de force du click, augmentation du spawn de zombies a chaque
+ boss zombies vaincu, types de zombies hommme, femmes, chien, poulet,
+ gargantua, cuisinier goofy ahh.. et les chaudasse du cul.
+
+Jeu Numero 2
+- categorie : IDLE
+ concept : propriétaire d'un petit vaisseau spatial miteux, 
+ vous devrez farmer des ressources dans l'espace, grace aux 
+ lunes, generateurs, pillages, et troc sur "EL market"
+ afin d'agrandir son vaisseau.
+ touches artistiques : metallique, pierre, ciel nocturne, missiles en cas de 
+	raids
+ autres : attaques des vents solaires -> retour a zero du joueur,
+	capacité de wrap, 
+  
+### 3D
+- simulateur de guerre de SDF 1 ameliorer son SDF, et gagner le territoire d'autres SDF.
+
+- sandbox, strategie 2 construire son propre vehicule, pour atteindre la plus longue distance possible
+
+- horreur psychologique 3 Un enfant subit une abduction extraterrestre sans le savoir et se rend contre au fur et a mesure qu'in y a un probleme dans sa vie.
+
+- exploration 5 simulateur d'urbex de ville.
+
+
+ISOMETRIQUE
+- jeu de defense 1 defendre une ferme face a une attaque de zombie.
+
+
+demarrage
+
+questions a repondre d'ici le 25 Mars
+
+questions techniques :
+- avec qui creer le jeu ?
+- Dans quel language et moteur de jeu programmer ?
+- ou publier le jeu ?
+
+
+questions in-game :
+- quel catégorie de jeu ?
+- multijoueur ?
+- 
+
+
+etape 1 faire un petit jeu sur PC en :
+Python
+C
+C++
+
+3 mois pour developper le v
+
+
+Moteur de texture : https://www.codeandweb.com/texturepacker/download/7.6.0/linux-deb
+
+Source : https://thomasgervraud.com/best-2d-game-engine/
+
+Liste de languages de programmation pour les jeux vidéo :
+C
+C#
+C++
+python
+
+Liste des Moteurs de jeu :
+godot
+unity
+unreal
+studio game maker
+construct.net ( dans le navigateur )
+Solar2D ( basé sur Lua ) guide : https://docs.coronalabs.com/guide/programming/index.html
+RPG Maker guide : https://kinoar.github.io/rmmv-doc-web/
+Buildbox : no-code, payant
+Clickteam Fusion : payant pour exporter un jeu.
+Roblox Studio  : Windows 
+
+Liste des libraires :
+cocos2d python3.6 necessite pyglet chinois
+
+liens de telechargements plateforme Linux : 
+Godot : https://godotengine.org/download/linux/
+Unity : https://docs.unity3d.com/hub/manual/InstallHub.html#install-hub-linux
+GameMaker : https://gamemaker.io/en/download
+Solar2D : https://github.com/coronalabs/corona/releases/tag/3718
+cocos : https://www.cocos.com/en
+Toutes les version de RPG Maker : https://www.rpgmakerweb.com/downloads
+Unreal : https://www.unrealengine.com/en-US/download ( Windows )
+BuildBox : https://signup.buildbox.com/downloads/bb3 ( Windows )
+Defold : https://defold.com/download/
+Roblox Studio : https://devforum.roblox.com/t/the-ultimate-guide-on-how-to-play-roblox-on-linux/3171920
