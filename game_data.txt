@@ -9,8 +9,9 @@
  Concept : cliquer frenetiquement sur des ennemis pour les tuer, et 
  faire le plus haut score.
 
- MVP : menu principal, barre de progression, menu, pause, powers up +degat
- boss, vie, bouclier.
+ MVP : menu principal, barre de progression, barre des power-ups, menu principal,
+ menu pause,
+ powers up : degat, double-click, vie du hero, bouclier du hero ( a cliquer dessus )
 
  Portabilitée : Itch.io, PC, linux, et MacOS
 
@@ -18,8 +19,6 @@
 
  idées : 
  
- - powerups du jeu ( +zone de degats, +degats, +bouclier, +vie, modeLSD ) ( cliquer pour le récuperer )
-
  - cycle jour/nuit
 
  - tableau des scores
@@ -31,9 +30,8 @@
  - Pourcentage de progression, de vie, de bouclier,
  de chance qu'un boss apparaisse
 
- - zombies hommme, femmes, chien, poulet, esquiveur, barricadé, gargantua, cuisinier goofy ahh.. et les chaudasse du cul.
+ - design des ennemis hommme, femmes, chien, poulet, esquiveur, barricadé, gargantua, cuisinier goofy ahh.. et les chaudasse du cul.
 
- - 
 
 
 ## questions a repondre d'ici le 25 Mars le jour ou le developpement commence.
@@ -48,9 +46,9 @@ code Lua, compilateur Love2D
 sur itch.io
 
 - c'est quoi comme jeu ?
-un jeu type clicker, infini avec un design pixel, retro
+un jeu de zombie clicker game, avec un design pixelisé.
 
-- Dans quel langue le jeu est-til disponible ?
+- Dans quel langue le jeu est t-il disponible ?
 francais, et anglais.
 
 - a qui s'addresse ce jeu ?
