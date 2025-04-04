@@ -1,4 +1,4 @@
--- Jouer les musiques
+--m
 
 local bgm_Intro = love.audio.newSource("assets/sounds/train.mp3", "stream")
 local bgm_game = love.audio.newSource("assets/sounds/DustOnMixers.mp3", "stream")

@@ -1,12 +1,10 @@
--- playing
+-- playing file
 
-require("clock")
-
-function love.load()
-	btn_start = love.graphics.newImage("exercices/start.jpg")
-end
-function love.draw()
-	love.graphics.draw(btn_start, 100,100)
-end
-
-time_clock(true, "play", 0)
+-- require("librairies.game.clock")
+function ft_play()
+  bgm = love.audio.newSource('sounds/bgm_day.mp3')
+  assert(bgm_main_menu:getType() ==  "stream")
+  
+  love.audio.play(bgm)
+  love.graphics.print("Vous avez lancé une partie", 100,100)
+  end
