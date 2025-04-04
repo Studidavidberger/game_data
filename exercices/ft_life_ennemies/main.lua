@@ -24,19 +24,19 @@ function love.keypressed(key)
 end
 
   if key == 'a' then
-  ft_men_lvl()
+  ft_life("LIFE CHICKEN ZOMBIE - start life a", 1.5)
 end
 
   if key == 'b' then
-  ft_women_lvl()
+  ft_life("LIFE WOMAN ZOMBIE - start life a", 2)
 end
 
   if key == 'c' then
-  ft_chicken_lvl()
+  ft_life("LIFE MEN ZOMBIE - start life a", 3)
 end
 
   if key == 'd' then
-  ft_cuistot_lvl()
+  ft_life("LIFE COOKER ZOMBIE - start life a", 5)
 end
 
   if key == 'e' then

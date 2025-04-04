@@ -6,23 +6,24 @@ require("librairies.menu")
 require("librairies.playing")
 local socket = require('socket')
 
--- LOAD THE INTRO BG AND BGM.
+-- DECLARER LES VARAIBLES
+screen = "intro"
 cursor =  love.graphics.newImage('images/cursor.png')
 
+  socket.sleep(1)
+
+
+-- LOAD THE INTRO BG AND BGM.
 bg =  love.graphics.newImage('images/bg/bg_intro.jpg')
 bgm = love.audio.newSource("sounds/effects/ZomMoan1.mp3", "static")
 
-local screen = "intro"
-
-
+--CURSOR
 function love.load()
   love.mouse.setVisible(false)
   love.mouse.setGrabbed(true)
 end
 
-socket.sleep(1)
-
-function love.draw(bgm_intro)
+function love.draw()
   love.graphics.draw(cursor, love.mouse.getX(), love.mouse.getY())  
 	love.graphics.draw(bg, 0, 0)
   love.audio.play(bgm)
@@ -30,8 +31,8 @@ end
 
 
 function love.mousepressed()
-  ft_menu()
-  print("you've clicked to menu")
+  ft_menu(screen)
+  screen = 'menu'
 end
 
 function love.keypressed(key)
