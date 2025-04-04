@@ -7,44 +7,35 @@ require("librairies.playing")
 local socket = require('socket')
 
 -- LOAD THE INTRO BG AND BGM.
+cursor =  love.graphics.newImage('images/cursor.png')
+
 bg =  love.graphics.newImage('images/bg/bg_intro.jpg')
 bgm = love.audio.newSource("sounds/effects/ZomMoan1.mp3", "static")
 
+local screen = "intro"
+
+
 function love.load()
-    cursor = love.mouse.getSystemCursor("hand")
-    -- Alternative: cursor = love.mouse.newCursor("pig.png", 0, 0)
+  love.mouse.setVisible(false)
+  love.mouse.setGrabbed(true)
 end
-
-function love.mousepressed(x, y, button)
-    -- Use a custom cursor when the left mouse button is pressed.
-    if button == 1 then
-        love.mouse.setCursor(cursor)
-    end
-end
-
-function love.mousereleased(x, y, button)
-    -- Go back to the default cursor when the left mouse button is released.
-    if button == 1 then
-        love.mouse.setCursor()
-    end
-end
-
 
 socket.sleep(1)
 
 function love.draw(bgm_intro)
+  love.graphics.draw(cursor, love.mouse.getX(), love.mouse.getY())  
 	love.graphics.draw(bg, 0, 0)
   love.audio.play(bgm)
 end
 
 
 function love.mousepressed()
-  print("moused has been clicked")
+  ft_menu()
+  print("you've clicked to menu")
 end
 
 function love.keypressed(key)
   if key == 'a' then
-  ft_menu()
 end
 
   if key == 'b' then
