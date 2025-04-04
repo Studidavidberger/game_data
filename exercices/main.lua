@@ -9,9 +9,18 @@ local socket = require('socket')
 -- DECLARER LES VARAIBLES
 screen = "intro"
 cursor =  love.graphics.newImage('images/cursor.png')
-
   socket.sleep(1)
 
+-- LOAD ICON
+function love.load()
+    icon = love.graphics.newImage("images/item_banana.png")
+    success = love.window.setIcon(icon:getData())
+    if success then
+        print("L'icône a été changée avec succès")
+    else
+        print("Erreur lors du changement de l'icône")
+    end
+end
 
 -- LOAD THE INTRO BG AND BGM.
 bg =  love.graphics.newImage('images/bg/bg_intro.jpg')
