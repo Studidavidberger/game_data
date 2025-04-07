@@ -1,9 +1,6 @@
 -- CLOCK.LUA
 
--- DECLARER LES VARIABLES
 local thread
-time = 0
-
 function ft_clock(playing, screen, time)
   
   while ( playing == true and screen == 'play' ) do
@@ -20,7 +17,7 @@ function ft_clock(playing, screen, time)
   -- PASSER LA NUIT
   if ( time == 300 ) then
     function love.load()
-      bg = love.graphics.newImage('images/bg/bg_play_night.jpg')
+      bg = love.graphics.newImage('images/bg/bg_night.jpg')
       bgm = love.audio.newSource('sounds/bgm_night.ogg')
     end
     
