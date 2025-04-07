@@ -9,7 +9,9 @@ local socket = require('socket')
 -- DECLARER LES VARAIBLES
 screen = "intro"
 cursor =  love.graphics.newImage('images/cursor.png')
-  socket.sleep(1)
+
+-- WAIT 1 SEC
+socket.sleep(1)
 
 -- LOAD ICON
 function love.load()
@@ -22,14 +24,14 @@ function love.load()
     end
 end
 
--- LOAD THE INTRO BG AND BGM.
+-- LOAD THE INTRO ASSETS.
 bg =  love.graphics.newImage('images/bg/bg_intro.jpg')
 bgm = love.audio.newSource("sounds/effects/ZomMoan1.mp3", "static")
 
---CURSOR
+-- CREATE THE CURSOR
 function love.load()
   love.mouse.setVisible(false)
-  love.mouse.setGrabbed(true)
+  --love.mouse.setGrabbed(true)
 end
 
 function love.draw()
@@ -38,125 +40,51 @@ function love.draw()
   love.audio.play(bgm)
 end
 
+print("Affichage", love.window.getPosition())
 
+
+--  CHANGER D'ECRAN AU CLIQUE DE LA SOURIS
 function love.mousepressed()
-  ft_menu(screen)
-  screen = 'menu'
+  if screen == 'intro' then
+  ft_menu()
 end
 
-function love.keypressed(key)
-  if key == 'a' then
-end
-
-  if key == 'b' then
-    ft_menu(bg_main_menu)
+  if screen == 'menu' then
+    ft_play()
   end
-  
-  if key == 'c' then
-    ft_start()
-  end
-
-
-  if key == 'escape' then
-  love.event.quit('quit')
-end
-
-end
-
-
-
-
-
--- INFO
---[[
-os.execute('clear')
-welcome = [[
-$$$$$$$$$$$$$$$$$$$$$$
-$$ Clash of Zombies $$
-$$$$$$$$$$$$$$$$$$$$$$
-  
-  By Le Studio Maloute
-
-Welcome to the game data.
-Lets press a, b, c or d
-
-e for clear terminal.
-escape for quitting
-
-
-print(welcome)
-
-function love.keypressed(key)
-  if key == 'escape' then
-  love.event.quit('quit')
-end
-
-  if key == 'a' then
-  ft_men_lvl()
-end
-
-  if key == 'b' then
-  ft_women_lvl()
-end
-
-  if key == 'c' then
-  ft_chicken_lvl()
-end
-
-  if key == 'd' then
-  ft_cuistot_lvl()
-end
-
-  if key == 'e' then
-    ft_clear()
-end
-
-
 end
 --
-]]
 
-
-
-
-
-
-
-
-
-
-
--- CLOCK
---[[function love.keypressed(key)
-
-  if key == 'a' then
-  time_clock(true, "play", 10)
+--  CHANGER D'ECRAN A LA TOUCHE TAB PRESSE
+function love.keypressed(key)
+  if key == 'tab' then
+  ft_pause()
 end
 
-  if key == 'b' then
-  time_clock(true, "play", 295)
-end
-
-  if key == 'c' then
-    ft_co(3)
+  if key == 'i' and screen == 'menu' then
+    ft_info()
 end
 
   if key == 'escape' then
     love.event.quit('quit')
+  end
+
+  if key == 'escape' and screen == 'menu' then
+    socket.sleep(1)
+    love.graphics.print("Vous avez quitté le jeu au revoir !")
+    love.event.quit('quit')
 end
 
+
+  if key == 'escape' and screen == 'info' then
+    ft_menu("menu")
 end
 
+  
 
+end
+--
 
-]]
-
-
-
-
-
-
--- clock file - lancer les tests avec les touches a, b, c, d etc...
 
 
 io.stdout:setvbuf('no')
