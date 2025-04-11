@@ -3,150 +3,108 @@ require('librairies.game.info')
 require("librairies.game.clock")
 require("librairies.game.anim8")
 require("librairies.menu")
+require("librairies.pause")
 require("librairies.playing")
+require("librairies.mobs")
 local socket = require('socket')
+Push = require "librairies.modules.push"
 
--- LOAD THE INTRO BG AND BGM.
+
+-- test code area
+print(a == 2)
+
+-- DECLARER LES VARAIBLES 
+screen = "intro"
 cursor =  love.graphics.newImage('images/cursor.png')
-
 bg =  love.graphics.newImage('images/bg/bg_intro.jpg')
 bgm = love.audio.newSource("sounds/effects/ZomMoan1.mp3", "static")
+fps = 1/15
+love.window.setTitle("Clash of Zombies")
+love.audio.play(bgm)
 
-local screen = "intro"
+-- CHARGER LES ASSETS DU JEU
+local btn_start =  love.graphics.newImage('images/btn_start.png')
+
+-- MODIFIER LE TAILLE DE L'ECRAN
+love.window.setMode( 1280, 720, {fullscreen = false, vsync = true, resizable = true } )
+
+
+
+local bg =  love.graphics.newImage('images/bg/bg_menu.jpg')
+-- Taille de l'cran avec la librairie Push
+WINDOWS_WIDTH, WINDOWS_HEIGHT = love.window.getDesktopDimensions()
+print(WINDOWS_WIDTH, WINDOWS_HEIGHT)
+WINDOWS_WIDTH, WINDOWS_HEIGHT = WINDOWS_WIDTH * 0.8, WINDOWS_HEIGHT * 0.8
+
+VIRTUAL_WIDTH, VIRTUAL_HEIGHT = 320,180
 
 
 function love.load()
+  love.graphics.setDefaultFilter("nearest", "nearest")
+  Push:setupScreen(VIRTUAL_WIDTH, VIRTUAL_HEIGHT, WINDOWS_WIDTH, WINDOWS_HEIGHT,{fullscreen = false, vsync = true, resizable = true})
+end
+
+function love.draw()
+  Push:start()
+    love.graphics.draw(bg, 0, 0)
+    love.graphics.draw(cursor, love.mouse.getX(), love.mouse.getY())
+  Push:finish()
+end
+
+
+-- LOAD THE INTRO ASSETS.
+screen_w = love.graphics.getWidth()
+print("the width", screen_w)
+
+-- CREATE THE CURSOR
+function love.load()
   love.mouse.setVisible(false)
-  love.mouse.setGrabbed(true)
+  --love.mouse.setGrabbed(true)
 end
 
-socket.sleep(1)
+function love.draw()
+    love.graphics.draw(btn_start, 0, 0)
 
-function love.draw(bgm_intro)
-  love.graphics.draw(cursor, love.mouse.getX(), love.mouse.getY())  
-	love.graphics.draw(bg, 0, 0)
-  love.audio.play(bgm)
-end
-
-
-function love.mousepressed()
-  ft_menu()
-  print("you've clicked to menu")
-end
-
-function love.keypressed(key)
-  if key == 'a' then
-end
-
-  if key == 'b' then
-    ft_menu(bg_main_menu)
-  end
-  
-  if key == 'c' then
-    ft_start()
-  end
-
-
-  if key == 'escape' then
-  love.event.quit('quit')
-end
-
-end
-
-
-
-
-
--- INFO
---[[
-os.execute('clear')
-welcome = [[
-$$$$$$$$$$$$$$$$$$$$$$
-$$ Clash of Zombies $$
-$$$$$$$$$$$$$$$$$$$$$$
-  
-  By Le Studio Maloute
-
-Welcome to the game data.
-Lets press a, b, c or d
-
-e for clear terminal.
-escape for quitting
-
-
-print(welcome)
-
-function love.keypressed(key)
-  if key == 'escape' then
-  love.event.quit('quit')
-end
-
-  if key == 'a' then
-  ft_men_lvl()
-end
-
-  if key == 'b' then
-  ft_women_lvl()
-end
-
-  if key == 'c' then
-  ft_chicken_lvl()
-end
-
-  if key == 'd' then
-  ft_cuistot_lvl()
-end
-
-  if key == 'e' then
-    ft_clear()
-end
-
-
+  -- DEFINE THE FPS
+  -- socket.sleep(fps)
 end
 --
-]]
 
 
+--  CHANGER D'ECRAN AU CLIQUE DE LA SOURIS
+function love.mousepressed()
 
 
-
-
-
-
-
-
-
--- CLOCK
---[[function love.keypressed(key)
-
-  if key == 'a' then
-  time_clock(true, "play", 10)
+  if screen == 'menu' then
+    ft_play()
+  end
+  
+    if screen == 'intro' then
+  ft_menu()
 end
-
-  if key == 'b' then
-  time_clock(true, "play", 295)
+  print("main", screen)
 end
+--
 
-  if key == 'c' then
-    ft_co(3)
-end
-
+--  CHANGER D'ECRAN A LA TOUCHE TAB PRESSE
+function love.keypressed(key)
   if key == 'escape' then
     love.event.quit('quit')
+  end
+  
+  if key == 'tab' then
+  ft_pause()
 end
 
+  if key == 'i' and screen == 'menu' then
+    ft_info()
 end
 
-
-
-]]
-
-
-
-
-
-
--- clock file - lancer les tests avec les touches a, b, c, d etc...
-
+  if key == 'a' then
+    ft_mob()
+  end
+  
+end
+--
 
 io.stdout:setvbuf('no')

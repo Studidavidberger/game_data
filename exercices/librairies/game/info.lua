@@ -1,5 +1,8 @@
--- Bienvenue dans le fichier ennemies_lvl
+-- INFO.LUA
 
+function ft_info()
+  
+os.execute('clear')
 welcome = [[
 $$$$$$$$$$$$$$$$$$$$$$
 $$ Clash of Zombies $$
@@ -14,88 +17,46 @@ e for clear terminal.
 escape for quitting
 ]]
 
+-- MESSAGE
+print(welcome)
+function ft_info(screen)
+  arr = {"MEN", "WOMAN", "CHICKEN", "COOKER", 3, 2, 1.5, 5 }
+  function love.mousepressed()
+      ft_life(arr[index], arr[index+4])
+      index = index + 1
+
+end
+end
+--
+
+
+
 -- Calculer la vie des zombies
-function ft_men_lvl(life_men)
-  life_men = 3
+function ft_life(zomb, life)
   level = 1
   index = 0
+  offset = 0
   
   os.execute('clear')
   print(welcome)
-  print("LIFE MEN ZOMBIE - start life at", life_men)
+  print( "LIFE ZOMBIE - ", zomb, "start life at", life )
   while ( level <= 10 ) do
-    print(level, life_men)
-    life_men = ( life_men + life_men / 5 + index )
+    love.draw()
+      love.graphics.print(life, 100, offset)
+    end
+    print(level, life)
+    life = ( life + life / 5 + index )
     index = index + 1
     level = level + 1
-    if index >= 100 then break end
+    offset = offset + 50
   end
   print("END\n\n")
   
-end
---
 
-function ft_women_lvl(life_women)
-  life_women = 2
-  level = 1
-  index = 0
-  
-  os.execute('clear')
-  print(welcome)
-  print("LIFE WOMEN ZOMBIE - start life at", life_women)
-  while ( level <= 10 ) do
-    print(level, life_women)
-    life_women = ( life_women + life_women / 5 + index )
-    index = index + 1
-    level = level + 1
-    if index >= 100 then break end
-  end
-  print("END\n\n")
-  
-end
---
-
-function ft_chicken_lvl(life_chicken)
-  life_chicken = 1.5
-  level = 1
-  index = 0
-  
-  os.execute('clear')
-  print(welcome)
-  print("LIFE CHICKEN ZOMBIE - start life at", life_chicken)
-  while ( level <= 10 ) do
-    print(level, life_chicken)
-    life_chicken = ( life_chicken + life_chicken / 5 + index )
-    index = index + 1
-    level = level + 1
-    if index >= 100 then break end
-  end
-  print("END\n\n")
-  
-end
---
-
-function ft_cuistot_lvl(life_cuistot)
-  life_cuistot = 5
-  level = 1
-  index = 0
-  
-  os.execute('clear')
-  print(welcome)
-  print("LIFE CUISTOT ZOMBIE - start life at", life_cuistot)
-  while ( level <= 10 ) do
-    print(level, life_cuistot)
-    life_cuistot = ( life_cuistot + life_cuistot / 5 + index )
-    index = index + 1
-    level = level + 1
-    if index >= 100 then break end
-  end
-  print("END\n\n")
-  
-end
---
-
+-- EFFACER LE TERMINAL
 function ft_clear()
     os.execute('clear')
     print("Lets clear the term")
 end
+end
+--

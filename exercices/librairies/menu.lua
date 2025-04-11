@@ -1,14 +1,24 @@
+local socket = require('socket')
 --menu.lua
-local menu = "menu"
-
-
-function ft_menu(menu)
-  bg = love.graphics.newImage('images/other/start.jpg')
-  bgm = love.audio.newSource('sounds/pause.mp3', "stream")
-  assert(bgm:getType() ==  "stream")
+function ft_menu()
   
-  love.graphics.draw(bg)
-  love.audio.play(bgm)
+  -- LOAD ASSETS
+    bg = love.graphics.newImage('images/bg/bg_menu.jpg')
+    btn_start = love.graphics.newImage('images/btn_start.png')
+    bgm = love.audio.newSource('sounds/bgm_menu.mp3', "stream")
+    bgm:setLooping(true)
+    assert(bgm:getType() ==  "stream")
+    love.audio.play(bgm)
+    screen = 'menu'
+
   
-  love.graphics.print("You are in the menu")
+  -- DRAW ASSETS
+  function love.draw()
+    love.graphics.draw(bg, 0, 0)
+    love.graphics.draw(btn_start, 200, 200)
+    love.graphics.draw(cursor, love.mouse.getX(), love.mouse.getY())  
+    socket.sleep(fps)
+  end
+
 end
+--
