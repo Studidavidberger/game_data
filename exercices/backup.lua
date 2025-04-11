@@ -25,16 +25,21 @@ love.window.setTitle("Clash of Zombies")
 -- ADJUST WINDOW SIZE
 --  love.window.setMode( 1280, 720, {fullscreen = false, vsync = true } )
 
-local bg =  love.graphics.newImage('images/bg/bg_day.jpg')
+local btn_start =  love.graphics.newImage('images/btn_start.png')
 
+
+local bg =  love.graphics.newImage('images/bg/bg_menu.png')
 -- Taille de l'cran avec la librairie Push
---[[WINDOWS_WIDTH, WINDOWS_HEIGHT = love.window.getDesktopDimensions()
+WINDOWS_WIDTH, WINDOWS_HEIGHT = love.window.getDesktopDimensions()
+print(WINDOWS_WIDTH, WINDOWS_HEIGHT)
 WINDOWS_WIDTH, WINDOWS_HEIGHT = WINDOWS_WIDTH * 0.8, WINDOWS_HEIGHT * 0.8
 
-VIRTUAL_WIDTH, VIRTUAL_HEIGHT = 720,1280
+VIRTUAL_WIDTH, VIRTUAL_HEIGHT = 320,200
+
 
 function love.load()
-  Push:setupScreen(VIRTUAL_WIDTH, VIRTUAL_HEIGHT, WINDOWS_WIDTH, WINDOWS_HEIGHT,{fullscreen = false, vsync = true})
+  love.graphics.setDefaultFilter("nearest", "nearest")
+  Push:setupScreen(VIRTUAL_WIDTH, VIRTUAL_HEIGHT, WINDOWS_WIDTH, WINDOWS_HEIGHT,{fullscreen = false, vsync = true, resizable = true})
 end
 
 function love.update(dt)
@@ -42,24 +47,11 @@ end
 
 function love.draw()
   Push:start()
-    love.graphics.draw(bg, 0, 0)    
+    love.graphics.draw(bg, 0, 0)
+    love.graphics.draw(btn_start, 0, 0)
   Push:finish()
-  socket.sleep(2)
-  love.event.quit('quit')
 end
 
-
---< LOAD ICON
-function love.load()
-    icon = love.graphics.newImage("images/item_banana.png")
-    success = love.window.setIcon(icon:getData())
-    if success then
-        print("L'icône a été changée avec succès")
-    else
-        print("Erreur lors du changement de l'icône")
-    end
-end
-]]
 
 -- LOAD THE INTRO ASSETS.
 bg =  love.graphics.newImage('images/bg/bg_intro.jpg')
