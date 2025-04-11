@@ -5,7 +5,7 @@ function ft_play()
   -- LOAD ASSETS
     love.audio.stop()
     bg = love.graphics.newImage('images/bg/bg_day.jpg')
-    bgm = love.audio.newSource('sounds/bgm_day.mp3', "stream")
+    bgm = love.audio.newSource('sounds/bgm_day.ogg', "stream")
     bgm:setLooping(true)
     assert(bgm:getType() ==  "stream")
     screen = 'play'

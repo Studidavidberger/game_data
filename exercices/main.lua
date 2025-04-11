@@ -17,7 +17,7 @@ print(a == 2)
 screen = "intro"
 cursor =  love.graphics.newImage('images/cursor.png')
 bg =  love.graphics.newImage('images/bg/bg_intro.jpg')
-bgm = love.audio.newSource("sounds/effects/ZomMoan1.mp3", "static")
+bgm = love.audio.newSource("sounds/effects/sfx_zombie_01.mp3", "static")
 fps = 1/15
 love.window.setTitle("Clash of Zombies")
 love.audio.play(bgm)
@@ -26,7 +26,7 @@ love.audio.play(bgm)
 local btn_start =  love.graphics.newImage('images/btn_start.png')
 
 -- MODIFIER LE TAILLE DE L'ECRAN
-love.window.setMode( 1280, 720, {fullscreen = false, vsync = true, resizable = true } )
+--love.window.setMode( 1280, 720, {fullscreen = false, vsync = true, resizable = true } )
 
 
 
@@ -63,7 +63,6 @@ function love.load()
 end
 
 function love.draw()
-    love.graphics.draw(btn_start, 0, 0)
 
   -- DEFINE THE FPS
   -- socket.sleep(fps)

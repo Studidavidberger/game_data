@@ -5,7 +5,7 @@ function ft_menu()
   -- LOAD ASSETS
     bg = love.graphics.newImage('images/bg/bg_menu.jpg')
     btn_start = love.graphics.newImage('images/btn_start.png')
-    bgm = love.audio.newSource('sounds/bgm_menu.mp3', "stream")
+    bgm = love.audio.newSource('sounds/bgm_menu.ogg', "stream")
     bgm:setLooping(true)
     assert(bgm:getType() ==  "stream")
     love.audio.play(bgm)
