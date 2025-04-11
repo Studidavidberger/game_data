@@ -14,10 +14,11 @@ function ft_menu()
   
   -- DRAW ASSETS
   function love.draw()
+    Push:start()
     love.graphics.draw(bg, 0, 0)
     love.graphics.draw(btn_start, 200, 200)
     love.graphics.draw(cursor, love.mouse.getX(), love.mouse.getY())  
-    socket.sleep(fps)
+    Push:finish()
   end
 
 end

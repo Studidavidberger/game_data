@@ -15,10 +15,11 @@ function ft_play()
     
   -- USE ASSETS
     function love.draw()
+    Push:start()
       love.graphics.draw(bg)
       love.graphics.print("Vous avez lancé une partie", 100,100)
       love.graphics.draw(cursor, love.mouse.getX(), love.mouse.getY())
-      socket.sleep(fps)
+    Push:finish()
     end
     print("play", screen)
     screen = 'play'

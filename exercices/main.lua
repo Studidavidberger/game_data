@@ -5,7 +5,7 @@ require("librairies.game.anim8")
 require("librairies.menu")
 require("librairies.pause")
 require("librairies.playing")
-require("librairies.mobs")
+require("librairies.spawn_zombies")
 local socket = require('socket')
 Push = require "librairies.modules.push"
 
@@ -21,8 +21,6 @@ bgm = love.audio.newSource("sounds/effects/sfx_zombie_01.mp3", "static")
 fps = 1/15
 love.window.setTitle("Clash of Zombies")
 love.audio.play(bgm)
-
--- CHARGER LES ASSETS DU JEU
 local btn_start =  love.graphics.newImage('images/btn_start.png')
 
 -- MODIFIER LE TAILLE DE L'ECRAN
@@ -30,19 +28,22 @@ local btn_start =  love.graphics.newImage('images/btn_start.png')
 
 
 
-local bg =  love.graphics.newImage('images/bg/bg_menu.jpg')
 -- Taille de l'cran avec la librairie Push
 WINDOWS_WIDTH, WINDOWS_HEIGHT = love.window.getDesktopDimensions()
 print(WINDOWS_WIDTH, WINDOWS_HEIGHT)
 WINDOWS_WIDTH, WINDOWS_HEIGHT = WINDOWS_WIDTH * 0.8, WINDOWS_HEIGHT * 0.8
-
 VIRTUAL_WIDTH, VIRTUAL_HEIGHT = 320,180
 
 
 function love.load()
+  love.mouse.setVisible(false)
   love.graphics.setDefaultFilter("nearest", "nearest")
-  Push:setupScreen(VIRTUAL_WIDTH, VIRTUAL_HEIGHT, WINDOWS_WIDTH, WINDOWS_HEIGHT,{fullscreen = false, vsync = true, resizable = true})
+  Push:setupScreen(VIRTUAL_WIDTH, VIRTUAL_HEIGHT, WINDOWS_WIDTH, WINDOWS_HEIGHT,{fullscreen = false, vsync = true, resizable = true })
 end
+
+function love.update(dt)
+end
+
 
 function love.draw()
   Push:start()
@@ -51,23 +52,6 @@ function love.draw()
   Push:finish()
 end
 
-
--- LOAD THE INTRO ASSETS.
-screen_w = love.graphics.getWidth()
-print("the width", screen_w)
-
--- CREATE THE CURSOR
-function love.load()
-  love.mouse.setVisible(false)
-  --love.mouse.setGrabbed(true)
-end
-
-function love.draw()
-
-  -- DEFINE THE FPS
-  -- socket.sleep(fps)
-end
---
 
 
 --  CHANGER D'ECRAN AU CLIQUE DE LA SOURIS
