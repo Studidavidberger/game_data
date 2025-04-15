@@ -2,7 +2,6 @@
 -- DECLARER LES VARIABLES
 liste = {"MEN", "WOMAN", "CHICKEN", "COOKER", 3, 2, 1.5, 5 }
 bgm = love.audio.newSource("sounds/effects/sfx_zombie_01.mp3", "static")
-bg = love.graphics.newSource('images/bg/info.jpg')
 
 
 function love.mousepressed()

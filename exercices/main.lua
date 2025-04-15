@@ -1,93 +1,48 @@
---main.lua
-require('librairies.game.info')
-require("librairies.game.clock")
-require("librairies.game.anim8")
-require("librairies.menu")
-require("librairies.pause")
-require("librairies.playing")
-require("librairies.spawn_zombies")
-local socket = require('socket')
-Push = require "librairies.modules.push"
-
-
--- test code area
-print(a == 2)
-
--- DECLARER LES VARAIBLES 
-screen = "intro"
-cursor =  love.graphics.newImage('images/cursor.png')
-bg =  love.graphics.newImage('images/bg/bg_intro.jpg')
-bgm = love.audio.newSource("sounds/effects/sfx_zombie_01.mp3", "static")
-fps = 1/15
-love.window.setTitle("Clash of Zombies")
-love.audio.play(bgm)
-local btn_start =  love.graphics.newImage('images/btn_start.png')
-
--- MODIFIER LE TAILLE DE L'ECRAN
---love.window.setMode( 1280, 720, {fullscreen = false, vsync = true, resizable = true } )
-
-
-
--- Taille de l'cran avec la librairie Push
-WINDOWS_WIDTH, WINDOWS_HEIGHT = love.window.getDesktopDimensions()
-print(WINDOWS_WIDTH, WINDOWS_HEIGHT)
-WINDOWS_WIDTH, WINDOWS_HEIGHT = WINDOWS_WIDTH * 0.8, WINDOWS_HEIGHT * 0.8
-VIRTUAL_WIDTH, VIRTUAL_HEIGHT = 320,180
-
-
+love.window.setMode( 1280, 720, {fullscreen = false, vsync = true, resizable = true } )
+screen_width, screen_height = love.window.getMode()
+cx = screen_width/2
+cy = screen_height/2
+--
 function love.load()
-  love.mouse.setVisible(false)
-  love.graphics.setDefaultFilter("nearest", "nearest")
-  Push:setupScreen(VIRTUAL_WIDTH, VIRTUAL_HEIGHT, WINDOWS_WIDTH, WINDOWS_HEIGHT,{fullscreen = false, vsync = true, resizable = true })
-end
-
+  image = love.graphics.newImage('test/cat.png')
+  cat = {x=cx,y=cy,angle=0,image=image,ox=image:getWidth()/2,oy=image:getHeight()/2}
+ end
+--
 function love.update(dt)
+  local mx, my = love.mouse.getPosition()
+  local dx, dy = mx-cat.x, my-cat.y
+  cat.angle = math.atan2 (dy, dx)
+  cat.x = cat.x + dt*dx
+  cat.y = cat.y + dt*dy
 end
-
-
+--
 function love.draw()
-  Push:start()
-    love.graphics.draw(bg, 0, 0)
-    love.graphics.draw(cursor, love.mouse.getX(), love.mouse.getY())
-  Push:finish()
+  love.graphics.draw(cat.image, cat.x, cat.y, cat.angle, 1.2, 1, cat.ox, cat.oy)
+  love.graphics.print("cat", cat.x, cat.y+75)
+  love.graphics.print("life 100", cat.x, cat.y-75)
+  love.graphics.print(cat.x, screen_width/10,0)
+  love.graphics.print(cat.y, screen_width/10,20)
 end
-
-
-
---  CHANGER D'ECRAN AU CLIQUE DE LA SOURIS
+--
 function love.mousepressed()
-
-
-  if screen == 'menu' then
-    ft_play()
-  end
-  
-    if screen == 'intro' then
-  ft_menu()
-end
-  print("main", screen)
+    local instance = setmetatable({}, {__index = cat})
+    instance.x = 100
+    instance.y = 100
+    print(instance.y)
+    return instance
 end
 --
-
---  CHANGER D'ECRAN A LA TOUCHE TAB PRESSE
 function love.keypressed(key)
-  if key == 'escape' then
-    love.event.quit('quit')
+  if key == 'right' then
+    cat.x = cat.x + 10
   end
   
-  if key == 'tab' then
-  ft_pause()
-end
-
-  if key == 'i' and screen == 'menu' then
-    ft_info()
-end
-
-  if key == 'a' then
-    ft_mob()
+  if key == 'down' then
+    cat.y = cat.y + 10
   end
-  
 end
 --
+
+love.window.setTitle('mini prograam')
 
 io.stdout:setvbuf('no')
