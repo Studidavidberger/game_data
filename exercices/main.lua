@@ -4,7 +4,8 @@ cx = screen_width/2
 cy = screen_height/2
 --
 function love.load()
-  image = love.graphics.newImage('test/cat.png')
+  image = love.graphics.newImage('images/ennemies/male/male_01.png')
+  bg = love.graphics.newImage('images/bg/bg_day_full.jpg')
   cat = {x=cx,y=cy,angle=0,image=image,ox=image:getWidth()/2,oy=image:getHeight()/2}
  end
 --
@@ -17,6 +18,7 @@ function love.update(dt)
 end
 --
 function love.draw()
+  love.graphics.draw(bg)
   love.graphics.draw(cat.image, cat.x, cat.y, cat.angle, 1.2, 1, cat.ox, cat.oy)
   love.graphics.print("cat", cat.x, cat.y+75)
   love.graphics.print("life 100", cat.x, cat.y-75)
