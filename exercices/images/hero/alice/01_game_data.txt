@@ -1,0 +1,49 @@
+Présentation du jeu) : 
+ 1) nom : clash of zombie
+
+ 2) categorie de jeu : clicker
+
+ 3) Histoire : proteger la héroine nommé Kali, des vagues de zombies ( jeu infini )
+
+ 4) Concept : cliquer frenetiquement sur des ennemis pour les tuer, et 
+ faire le plus haut score.
+
+ 5) Portabilitée : Itch.io, PC, linux, et MacOS
+
+ 6) design : pixel, retro, nature, lumineux.
+
+Liste des idées) :
+1) - cycle jour/nuit
+
+2) - tableau des scores
+
+3) - jalons superieur a chaque boss vaincu
+
+4) - augmentation du spawn de zombies a chaque nouveau jalon
+
+5) - Pourcentage de chance qu'un boss apparaisse.
+
+6) - design des ennemis hommme, femmes, poulet, gargantua, cuisinier, boss et les putes bien sur
+
+
+## questions a repondre d'ici le 25 Mars avant que le developpement du jeu commence :,)
+1) - Qui a créé ce jeu ?
+Une petite equipe de developpeurs indé.
+
+2) - Dans quel language et moteur de jeu programmer ?
+code Lua, compilateur Love2D
+
+3) - ou publier le jeu ?
+sur itch.io
+
+4) - c'est quoi comme jeu ?
+un jeu de zombie clicker game, avec un design pixelisé.
+
+5) - Dans quel langue le jeu est t-il disponible ?
+francais, et anglais.
+
+6) - a qui s'addresse ce jeu ?
+A ceux qui aime relever des défis.
+
+7) - combien de temps dure le jeu ?
+5min comme 5h tout depends de ton skill.
