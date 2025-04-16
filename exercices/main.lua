@@ -1,3 +1,5 @@
+require ('librairies.zombie')
+
 love.window.setMode( 1280, 720, {fullscreen = false, vsync = true, resizable = true } )
 screen_width, screen_height = love.window.getMode()
 cx = screen_width/2
@@ -20,18 +22,15 @@ end
 function love.draw()
   love.graphics.draw(bg)
   love.graphics.draw(cat.image, cat.x, cat.y, cat.angle, 1.2, 1, cat.ox, cat.oy)
-  love.graphics.print("cat", cat.x, cat.y+75)
-  love.graphics.print("life 100", cat.x, cat.y-75)
+  love.graphics.print("zombie", cat.x, cat.y+75)
+  love.graphics.print("life{l}", cat.x, cat.y-75)
   love.graphics.print(cat.x, screen_width/10,0)
   love.graphics.print(cat.y, screen_width/10,20)
 end
 --
+
+
 function love.mousepressed()
-    local instance = setmetatable({}, {__index = cat})
-    instance.x = 100
-    instance.y = 100
-    print(instance.y)
-    return instance
 end
 --
 function love.keypressed(key)
@@ -41,6 +40,10 @@ function love.keypressed(key)
   
   if key == 'down' then
     cat.y = cat.y + 10
+  end
+  
+  if key == 'escape' then
+    love.event.quit('quit')
   end
 end
 --
