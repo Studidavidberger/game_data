@@ -11,15 +11,15 @@ cy = screen_height/2
 function love.load()
     math.randomseed(os.time())
   --ennemies_images
-  local img_male = love.graphics.newImage('images/ennemies/male/male.png')
-  local img_female = love.graphics.newImage('images/ennemies/female/female_front.png')
-  local img_slut = love.graphics.newImage('images/ennemies/slut/slut_front.png')
-  local img_cooker = love.graphics.newImage('images/ennemies/male/male.png')
-  local img_boss = love.graphics.newImage('images/ennemies/male/male.png')
-  local img_chicken = love.graphics.newImage('images/ennemies/male/male.png')
+  img_male = love.graphics.newImage('images/ennemies/male/male.png')
+  img_female = love.graphics.newImage('images/ennemies/female/female_front.png')
+  img_slut = love.graphics.newImage('images/ennemies/slut/slut_front.png')
+  img_cooker = love.graphics.newImage('images/ennemies/male/male.png')
+  img_boss = love.graphics.newImage('images/ennemies/male/male.png')
+  img_chicken = love.graphics.newImage('images/ennemies/male/male.png')
   --hero_images
-  local img_hero1 = love.graphics.newImage('images/hero/bob/bob.png')
-  local img_hero2 = love.graphics.newImage('images/hero/alice/alice.png')
+  img_hero1 = love.graphics.newImage('images/hero/bob/bob.png')
+  img_hero2 = love.graphics.newImage('images/hero/alice/alice.png')
   --bgs
   bg = love.graphics.newImage('images/bg/bg_day_full.jpg')
   bg2 = love.graphics.newImage('images/bg/bg_night.jpg')
@@ -57,7 +57,10 @@ function love.keypressed(key)
   end
 
   if key == 'a' then
-
+    print("draw",slut.sprite, bg)
+    love.graphics.draw(img_slut, 100, 200)
+    socket.sleep(1)
+    print("aaaa", slut.sprite, male.life)
   end
 
 end
