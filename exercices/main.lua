@@ -21,8 +21,8 @@ function love.load()
   local img_hero1 = love.graphics.newImage('images/hero/bob/bob.png')
   local img_hero2 = love.graphics.newImage('images/hero/alice/alice.png')
   --bgs
-  bg = love.graphics.newImage('images/bg/bg_day_full.jpg')
-  bg2 = love.graphics.newImage('images/bg/bg_night.jpg')
+  bg = love.graphics.newImage('images/bg/bg_day.png')
+  bg2 = love.graphics.newImage('images/bg/bg_night.png')
   --bgms
   --
   -- LOAD HERO
