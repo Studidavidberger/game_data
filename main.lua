@@ -10,5 +10,5 @@ function love.draw()
 	love.graphics.draw(btn_start, 100,100)
 end
 
-io.stdout:setvbuf("no")
 ]]
+io.stdout:setvbuf("no")
