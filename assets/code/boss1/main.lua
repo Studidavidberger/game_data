@@ -3,18 +3,20 @@
 lorsce que le pourcentage d'apparition attein 100% ou que le joueur attein un des palier de niveau
 definit tout les 10000 PTS, un boss apparait,
 
-le boss va a une vitesse de 3px par seconde
-il fait 20 de degat par seconde si il frappe le hero
 
+boss
+vitesse 3 pixel / sec
+degat 20
+vie 100
 
 ]]
 
-
+--[[
 function love.load()
   boss = {}
   boss.x = 400
   boss.y = 200
-  boss.speed = 5
+  boss.speed = 3
   boss.sprite = love.graphics.newImage('exercices/boss_face_large.png')
   boss.spriteSheet = love.graphics.newImage('exercices/boss_face.png')
 
@@ -23,16 +25,50 @@ end
 function love.draw()
   love.graphics.draw(boss)
 end
+]]
 
 
 life_boss = 100
-damage_phase1 = 50
-damage_phase2 = 100
-score_player = 10000
-TA = 0.05
+vitesse = 3
+
+boss_damage = 50
+score_player = 0
+
+spn_boss = 0.05
 phase_1 = true 
 phase_2 = false
+
 life_player = 200
+click_damage = 1
+
+
+function hero_hit()
+  love.keypressed = 'a'
+  
+end
+
+function boss_hit()
+
+-- lancer les tests avec les touches a, b, c, d etc...
+function love.keypressed(key)
+    
+  if key == 'a' then
+    score_player = score_player + 1000
+    print(score_player)
+end
+
+  if key == 'b' then
+    spn_boss = spn_boss + 10
+    print(score_player)
+end
+  
+  
+  if key == 'escape' then
+  love.event.quit('quit')
+end
+
+
+end
 
 function damage()
  local damage = 50
@@ -53,7 +89,7 @@ while life_boss > 50 and TA > 0.05 and score_player >= 10000 do
   if phase_1 then
   print ("Première phase")
   life_player = damage()
- 
+
    if life_player <=0 then
     print ("Game Over")
     break
@@ -90,6 +126,3 @@ end
 
  os.execute("sleep 1")
 end
-  
-  
-  
