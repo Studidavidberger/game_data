@@ -1,8 +1,0 @@
-couleurs
-zombie
-peau #6DAF35
-habits #AF7A35
-
-hero 
-peau #FFA854
-habits none
