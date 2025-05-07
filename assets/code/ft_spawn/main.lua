@@ -18,6 +18,8 @@ io.stdout:setvbuf('no')
 
 socket = require'socket'
 
+love.window.setMode( 1280, 720, {fullscreen = false, vsync = true, resizable = true } )
+
 bg = love.graphics.newImage('bg_menu.png')
 
 local zombie = {
@@ -50,7 +52,7 @@ ct_zombie_cooker = 0
 get_now = os.time()
 --
 function ct_zombies()
-cd = .5
+cd = 0
   if rand_male == 1 then
     male = zombie:new(nil, "male", 2, 3)
     socket.sleep(cd)
@@ -70,7 +72,6 @@ if rand_cooker == 1 then
 end
 end
 --
-love.window.setMode( 1280, 720, {fullscreen = false, vsync = true, resizable = true } )
 function love.draw()
   ct_zombies()
 -- decalr variables
