@@ -14,7 +14,7 @@ if [ -z "$1" ]; then
     exit 0
 else
     rm $v_export
-    ffmpeg -i $1 -c:v libtheora -b:v 2000k -r $2 -c:a libvorbis -b:a 192k $v_export;
+    ffmpeg -i $1 -c:v libtheora -b:v 500k -r $2 -c:a libvorbis -b:a 192k $v_export;
     echo "video exported $1 $2 $v_export"
 fi
     xdg-open $v_export

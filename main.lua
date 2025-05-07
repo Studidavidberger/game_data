@@ -94,13 +94,13 @@ end
   else
   love.graphics.draw(btn_score.sprite, btn_score.X, btn_score.Y,r, btn_score.ratio,btn_score.ratio)
 end
+    
     love.graphics.print("NAME : " .. username,width/2,height/10)
     love.graphics.draw(mouse.sprite, love.mouse.getX(), love.mouse.getY())
-    love.mouse.setVisible(false)    
-
+    love.mouse.setVisible(false)
+  
+  end
 end
- 
- end
 --
 function love.keypressed(key)
   
