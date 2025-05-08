@@ -1,95 +1,67 @@
--- BOSS SPAWN
---[[psuedo code
-lorsce que le pourcentage d'apparition attein 100% ou que le joueur attein un des palier de niveau
-definit tout les 10000 PTS, un boss apparait,
+-- Test de code
+love.window.setMode( 1280, 720, {fullscreen = false, vsync = true, resizable = true } )
+--[[
+local b = os.time()
+local d = 0
 
-le boss va a une vitesse de 3px par seconde
-il fait 20 de degat par seconde si il frappe le hero
-
-
-]]
-
-
-function love.load()
-  boss = {}
-  boss.x = 400
-  boss.y = 200
-  boss.speed = 5
-  boss.sprite = love.graphics.newImage('boss_face.png')
-  boss.spriteSheet = love.graphics.newImage('boss_face.png')
-
-  bg = love.graphics.newImage('bg_day.png')
-end
 function love.draw()
-  love.graphics.draw(boss.sprite, 100, 100)
+  local a = os.date()
+  local c = os.clock()
+  
+  love.graphics.print("CLOCK 1 : " .. os.date(), 10, 10,r,3,3)
+  love.graphics.print("CLOCK 2 : " .. os.time()-b, 10, 40,r,3,3)
+  love.graphics.print("CLOCK 3 : " .. os.clock()*10, 10, 70,r,3,3)
+  love.graphics.print("CLOCK 4 : " .. d, 10, 100,r,3,3)
+  d = d + 1
+
 end
+]]
+--
+local bg = love.graphics.newImage('bg_day.png')
+local path_step = love.graphics.newImage('path_step.png')
 
+local path = {}
 
-life_boss = 100
-damage_phase1 = 50
-damage_phase2 = 100
-score_player = 10000
-TA = 0.05
-phase_1 = true 
-phase_2 = false
-life_player = 200
+path = {
+  step1 = {500, 400},
+  step2 = {300, 240},
+  step3 = {249, 149},
+  step3 = {249, 149}
+  }
 
-function damage()
- local damage = 50
-    life_player = life_player - damage
-    print("la vie du joueur après l'attaque de la phase 1 : " .. life_player)
-    return life_player
-  end
-
-function damage_phase2()
-  print ("le boss est presque vaincu un dernière effort !!")
-  local damage = 100
-    life_player = life_player - damage
-    print("la vie du joueur après l'attaque de la phase 2 : " .. life_player)
-    return life_player
-      end
-
-while life_boss > 50 and TA > 0.05 and score_player >= 10000 do
-  if phase_1 then
-  print ("Première phase")
-  life_player = damage()
- 
-   if life_player <=0 then
-    print ("Game Over")
-    break
-  end
-  
-  
-  life_boss = life_boss - damage_phase1
-  print("la vie du boss après l'attaque du joueur : " .. life_boss)
-  
-
-  if life_boss <= 50 then
-    print ("phase 2")
-    phase_1 = false
-    phase_2 = true
-  end
-
-
-  if phase_2 then
-    life_player = damage_phase2()
-  if life_player <= 0 then
-    print("Game Over")
-    break
-  end
+function ft_boss_particules()
+  print("particules video 1 sec spawn et mort")
 end
+--
+function ft_boss()
 
-  life_boss = life_boss - damage_phase2
-  print("La vie du boss après l'attaque du joueur  " .. life_boss)
+  boss = {}
+  
+  boss = {
+    life = 100,
+    speed = 5,
+    damage = 10,
+    animation = love.graphics.newImage('boss_walk.png'),
+    phase = 0,
+    IsTH = false,
+    IsVisible = true
+    }
+    
+end
+--
+function love.draw()
+  mouse = {}
 
-if life_boss <= 0 then
-  print("le boss est vaincu !! Vous avez gagné !!")
-  break
-end
-end
+  mouse = {
+  X = love.mouse.getX(),
+  Y = love.mouse.getY(),
+  }
 
- os.execute("sleep 1")
+  love.graphics.draw(bg,x,y,r,.5,.5)
+  love.graphics.draw(path_step,150,200,r,.3,.3)
+  love.graphics.print("Mouse X : " .. mouse.X,20,600,r,2,2)
+  love.graphics.print("Mouse Y : " .. mouse.Y,20,620,r,2,2)
+  
 end
-  
-  
-  
+--
+io.stdout:setvbuf'no'
