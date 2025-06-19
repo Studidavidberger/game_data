@@ -1,4 +1,3 @@
-local socket = require('socket')
 --menu.lua
 function ft_menu()
   
@@ -23,3 +22,7 @@ function ft_menu()
 
 end
 --
+function ft_test()
+    print(localvar)
+    end
+  --

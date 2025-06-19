@@ -1,0 +1,8 @@
+Palette couleurs CoZ
+
+Jaune #FFCC00
+bleu 1 #149FEE
+bleu 2 #1DA9C6
+bleu 3 #0C84F7
+Vert #219E65
+
