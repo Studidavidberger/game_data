@@ -6,3 +6,6 @@ bleu 2 #1DA9C6
 bleu 3 #0C84F7
 Vert #219E65
 
+logo > Maloute Studio
+logo Jaune #FFE948
+titre gris #E2DED7
