@@ -26,10 +26,6 @@ world = {
   bg = love.graphics.newImage('assets/world/images/bg/bg_day.jpg'),
   screen = "",
   
-  -- mouse
-  mouse = love.graphics.newImage('assets/world/images/cursor.png'),
-  mouse_X = love.mouse.getX(),
-  mouse_Y = love.mouse.getY(),
   
   -- Langue
   language = "fr",
@@ -50,7 +46,13 @@ function love.update()
     ratio_X = love.graphics.getWidth()/world.bg:getWidth(),
     ratio_Y = love.graphics.getHeight()/world.bg:getHeight(),
 }
-print(screensize.ratio_X, screensize.ratio_Y)
+
+  mouse = {
+    sprite = love.graphics.newImage('assets/world/images/cursor.png'),
+    X = love.mouse.getX(),
+    Y = love.mouse.getY()
+}
+
 end
 
 
@@ -61,7 +63,9 @@ function ft_intro()
   print("screen : ", world.screen)
   
   -- Play the opening one time at start
-  world.video:play()
+  
+  -- muted
+  --world.video:play()
   
   
   -- Display the screen and text intro
@@ -81,8 +85,7 @@ function ft_intro()
   end
 
   if key == 'escape' then
-    love.graphics.print("Quitter vraiment ?!.. " .. world.screen,  screensize.X/2,screensize.Y/2,r,3,3)
-    print("Quitter vraiment ?!.. " .. world.screen)
+    bg = love.graphics.newImage('assets/world/images/bg/bg_quitter.png')
     --love.event.quit('quit')
   end
 
@@ -109,74 +112,79 @@ function ft_menu()
     
   --load bgm_menu.ogg
   bgm = love.audio.newSource('assets/sounds/bgm_menu.ogg', "stream")
-
-  local btn_playX, btn_playY, btn_playH, btn_playW = screensize.X/3, 20, bg:getWidth()/2, bg:getHeight()/2
+  
+  -- switch music
+  --mute
   world.video:pause()
-  love.audio.play(bgm)
+  --love.audio.play(bgm)
 
   function love.draw()
   
     
   local btn_pseudo = {
     sprite = love.graphics.newImage('assets/world/images/items/btn_pseudo.png'),
-    X = screensize.X/2-190,
-    Y = screensize.Y/2,
-    right = 0,
-    down = 0,
-    ratio = 1
+    posx = screensize.X/2,
+    posy = screensize.Y/6,
+    ratio = 1,
   }
-  
+
   local btn_play = {
     sprite = love.graphics.newImage('assets/world/images/items/btn_play.png'),
-    X = screensize.X/2-190,
-    Y = screensize.Y/10,
-    right = 0,
-    down = 0,
-    ratio = 1
+    posx = screensize.X/2,
+    posy = screensize.Y/20,
+    ratio = 1,
   }
   
-  btn_play.right = btn_play.X + btn_play.sprite:getWidth() * btn_play.ratio
-  btn_play.down = btn_play.Y + btn_play.sprite:getHeight() * btn_play.ratio
-        
-  if ( world.mouse_X >= btn_play.X and world.mouse_X <= btn_play.right and
-    world.mouse_Y >= btn_play.Y and world.mouse_Y <= btn_play.down ) then
+  if ( mouse.X > btn_play.posx and mouse.X < btn_play.posx+64 and mouse.Y > btn_play.posy and mouse.Y < btn_play.posy+64 ) 
+    then
+    btn_play.sprite = love.graphics.newImage('assets/world/images/items/btn_play_light.png')
+  end
   
-  btn_play.sprite = love.graphics.newImage('assets/world/images/items/btn_play_light.png')
-  love.graphics.draw(btn_play.sprite, btn_play.X, btn_play.Y,r, btn_play.ratio,btn_play.ratio)
-    
-    --[[
-    print("\nMOUSE: X " .. mouse.X .. " Y " .. mouse.Y)
-    print("screensize: X " .. screensize.X .. " Y " .. screensize.X)
-    print("BUTTON: X " .. btn_play.X .. " Y " .. btn_play.Y)
-    --]]
+    if ( mouse.X > btn_pseudo.posx and mouse.X < btn_pseudo.posx+256 and mouse.Y > btn_pseudo.posy and mouse.Y < btn_pseudo.posy+256 ) 
+    then
+    btn_pseudo.sprite = love.graphics.newImage('assets/world/images/items/btn_pseudo_light.png')
+  end
   
-  else
-end
+  -- BG
+  love.graphics.draw(world.bg,0, 0,r, screensize.ratio_X, screensize.ratio_Y)
   
-  love.graphics.draw(world.bg,0, 0,r, world.ratio_X, world.ratio_Y)
-  love.graphics.draw(btn_play.sprite, btn_play.X, btn_play.Y,r, btn_play.ratio,btn_play.ratio)
-  love.graphics.draw(btn_pseudo.sprite, btn_pseudo.X, btn_pseudo.Y,r, btn_pseudo.ratio,btn_pseudo.ratio)
+  -- button play
+  love.graphics.draw(btn_play.sprite, screensize.X/2, screensize.Y/20 ,r, screensize.ratio_X*2 )
+  
+    -- username button
+  love.graphics.draw(btn_pseudo.sprite, btn_pseudo.X, btn_pseudo.Y,r, btn_pseudo.ratio,btn_pseudo.ratio)  
   love.graphics.print(player.username, screensize.X/2,250)
-  love.graphics.draw(world.mouse, love.mouse.getX(), love.mouse.getY())
-  love.graphics.draw(world.mouse, love.mouse.getX(), love.mouse.getY())
+  
+  -- custom mouse
+  love.graphics.draw(mouse.sprite, love.mouse.getX(), love.mouse.getY())
+  love.graphics.draw(mouse.sprite, love.mouse.getX(), love.mouse.getY())
   love.mouse.setVisible(false)
   
-end
-
     function love.keypressed(key)
+        if key == "d" then
+        print("\ntmin, mouse_pos, tmax", btn_play.posx, mouse.X, btn_play.posx+64)
+        print("screensize.ratio_X", screensize.ratio_X)
+      end
+        if key == 'escape' then
+          love.event.quit('quit')
+        end
+      --[[
       alphabet = {"a","b","c","d","e","f","g","h","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y",1,2,3,4,5,6,7,8,9,"-","_","@"}
       player.username = alphabet[i]
-      if key == "up" then
+        if key == "up" then
           i = i + 1
       end      
-      if key == "down" then
+        if key == "down" then
           i = i - 1
       end
-      if key == "space" then
+        if key == "space" then
         player.username = player.username
       end
+      ]]
+
       
   end
+end
 
 end
 --
